@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectedCount, incrementCount, decrementCount } from '../../../features/counter/counterSlice'
+import { Button } from '../../atoms'
 
 const Counter: React.FC = () => {
   const count = useSelector(selectedCount)
@@ -15,29 +16,22 @@ const Counter: React.FC = () => {
 
   return (
     <Fragment>
-      <div className="card-action">
+      <div className="container">
         <div className="center">
           <h1>Counter component <strong>{count}</strong></h1>
-        </div>
-
-        <div className="group">
-          <button
-            className="waves-effect waves-teal btn-flat blue"
-            type="button"
-            onClick={decrement}
-          >
-            decrement
-          </button>
-          <button
-            className="waves-effect waves-teal btn-flat red"
-            type="button"
+          <Button
+            className="btn-flat red"
+            buttonText="increament"
             onClick={increament}
-          >
-            increment
-          </button>
+          >.</Button>
+          <hr />
+          <Button
+            className="btn-flat blue"
+            buttonText="decrement"
+            onClick={decrement}
+          >.</Button>
         </div>
       </div>
-
     </Fragment>
   )
 }

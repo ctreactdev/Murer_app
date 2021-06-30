@@ -1,15 +1,19 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { setCheck } from '../../../features/todo/todoSlice'
 
-export const TodoItemStyle = css`
+const Wrapper = styled.div`
+.todoCheckbox {
+    position: absolute;
+    opacity: 1;
+    pointer-events: auto;
+}
+.todoItem--done {
+    text-decoration: line-through;
+}
 
 `
-
-// const TodoIteM = styled.div`
-//     ${props => TodoItemStyle}
-// `
-
-const Wrapper = styled.div``
 
 interface IInputProps {
     name: string;
@@ -19,14 +23,18 @@ interface IInputProps {
 const TodoItem: React.FC<IInputProps> = ({
     name,
     done,
+    id,
 }) => {
+    const dispatch = useDispatch()
     const handleCheck = () => {
-
+        dispatch(setCheck(id))
     }
     return (
         <Wrapper>
-            <input type="checkbox" checked={done} onChange={handleCheck} />
-            <h1>{name}</h1>
+            <div className="todo-container">
+                <input className="todoCheckbox" type="checkbox" checked={done} onChange={handleCheck} />
+                <h3 className={done === true ? 'todoItem--done' : 'none'}>{name}</h3>
+            </div>
         </Wrapper>
     )
 };

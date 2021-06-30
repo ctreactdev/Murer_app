@@ -11,19 +11,26 @@ const TodoList: React.FC = () => {
 
   const [input, setInput] = useState('')
 
+  const inputLenght = input.length > 0
+
   const addTodo = () => {
-    dispatch(saveTodo({
-      item: input,
-      done: false,
-      id: Date.now()
-    }))
+    if (inputLenght) {
+      dispatch(saveTodo({
+        item: input,
+        done: false,
+        id: Date.now()
+      }))
+    } else
+      alert("empty")
   }
 
   return (
-    <div>
+    <div className="container">
+
       <h1>Todo List!</h1>
       <DefaultInput value={input} onChange={e => setInput(e.target.value)} />
-      <Button buttonText="Add todo" onClick={addTodo} />
+      <Button buttonText="Add todo" className="btn-flat green" onClick={addTodo} />
+
       <div className="TodoContainer">
         {todoList.map(item => (
           <TodoItem
@@ -33,6 +40,7 @@ const TodoList: React.FC = () => {
           />
         ))}
       </div>
+
     </div>
   )
 }
