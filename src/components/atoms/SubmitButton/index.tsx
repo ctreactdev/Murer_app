@@ -12,7 +12,7 @@ const Button: React.FunctionComponent<IButtonProps> = ({
     buttonText,
     className,
     onClick
-}) => { 
+}) => {
     return (
         <Wrapper
             onClick={onClick}

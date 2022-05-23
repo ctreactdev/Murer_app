@@ -5,7 +5,7 @@ const Wrapper = styled.input``
 
 interface IInputProps {
     value: string | number;
-    onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 const Input: React.FunctionComponent<IInputProps> = ({
     value,

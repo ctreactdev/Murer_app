@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import todoReducer from './features/todo/todoSlice'
+import consumptionCalculatorReducer from './features/consumptionCalculator/consumptionCalculatorSlice'
 import counterReducer from './features/counter/counterSlice'
 
 export default configureStore({
   reducer: {
-    todos: todoReducer,
+    consumptionCalculator: consumptionCalculatorReducer,
     counter: counterReducer
   },
 })

@@ -1,9 +1,9 @@
 import Home from './Home';
-import TodoList from './TodoList';
+import ConsumptionCalculator from './ConsumptionCalculator';
 import Counter from './Counter';
 
 export {
     Home,
-    TodoList,
+    ConsumptionCalculator,
     Counter,
 }
