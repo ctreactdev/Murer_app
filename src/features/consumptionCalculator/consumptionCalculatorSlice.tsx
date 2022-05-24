@@ -1,30 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    todoList: [] as any
+  todoList: [] as any,
 }
 
 const todoSlice = createSlice({
-    name: "todos",
-    initialState,
-    reducers: {
-        saveTodo: (state, action) => {
-            state.todoList.push(action.payload)
-        },
-        setCheck: (state, action) => {
-            state.todoList.forEach(item => {
-                if (action.payload === item.id) {
-                    if (item.done === true) {
-                        item.done = false
-                    } else {
-                        item.done = true
-                    }
-                }
-            })
-        }
-    }
-});
+  name: 'todos',
+  initialState,
+  reducers: {},
+})
 
-export const { saveTodo, setCheck } = todoSlice.actions
-export const selectedTodoList = state => state.todos.todoList
+export const {} = todoSlice.actions
+export const selectedTodoList = (state) => state.todos.todoList
 export default todoSlice.reducer
